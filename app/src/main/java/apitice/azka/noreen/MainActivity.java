@@ -2,6 +2,7 @@ package apitice.azka.noreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 String username=u.getText().toString();
                 String password=p.getText().toString();
                 putPrefernceValues(username,password);
+                Intent intent=new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
             }
         });
 

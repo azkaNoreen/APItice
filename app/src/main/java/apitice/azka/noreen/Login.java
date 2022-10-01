@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
 
                 if(!(un.equals(""))){
                     if(!(pass.equals(""))){
-                        if(!(un.equals(preferences[0])&&pass.equals(preferences[1]))){
+                        if((un.equals(preferences[0])&&pass.equals(preferences[1]))){
                             Intent intent=new Intent(Login.this,LoadingList.class);
                             intent.putExtra("hello","I amani");
                             startActivity(intent);
@@ -51,26 +51,13 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
     public void initSharedPref(){
         sharedPreferences=getSharedPreferences("practicePreferences",MODE_PRIVATE);
 
     }
     public String[] getPrefernceValues(){
-        String np=sharedPreferences.getString("Email","no Email");
+        String np=sharedPreferences.getString("Name","no Name");
         String nr=sharedPreferences.getString("Password","no Password");
 
         String[] signupValues={np,nr};
