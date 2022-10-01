@@ -19,9 +19,9 @@ public class Details extends AppCompatActivity {
         s=findViewById(R.id.status);
 
         Intent intent=getIntent();
-        n.setText(intent.getStringExtra("Name"));
-        e.setText(intent.getStringExtra("Email"));
-        g.setText(intent.getStringExtra("Gender"));
-        s.setText(intent.getStringExtra("Status"));
+        n.setText("Name: "+intent.getStringExtra("Name"));
+        e.setText("Email: "+intent.getStringExtra("Email"));
+        g.setText("Gender: "+intent.getStringExtra("Gender"));
+        s.setText("Status: "+intent.getStringExtra("Status"));
     }
 }

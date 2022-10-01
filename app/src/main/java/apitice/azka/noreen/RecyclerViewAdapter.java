@@ -30,8 +30,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         Users st=studentArrayList.get(position);
         StudentViewHolder studentViewHolder= (StudentViewHolder) holder;
 
-        studentViewHolder.studentTextName.setText(st.getName());
-        studentViewHolder.studentPhone.setText(st.getId()+"");
+        studentViewHolder.studentPhone.setText("Name: "+st.getName());
+        studentViewHolder.studentTextName.setText("Id: "+st.getId()+"");
         studentViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

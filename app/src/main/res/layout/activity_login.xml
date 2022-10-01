@@ -8,11 +8,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Azka Noreen"
-        android:textSize="16sp"
+        android:text="Sign IN"
+        android:textSize="24sp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
         android:id="@+id/title"
+        android:textColor="@color/teal_700"
+        android:textStyle="bold"
+        android:layout_margin="24dp"
+
         >
     </TextView>
     <EditText
@@ -50,6 +53,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Login" />
+        android:text="Login"
+        app:backgroundTint="@color/teal_700"
+
+        />
 
 </RelativeLayout>
