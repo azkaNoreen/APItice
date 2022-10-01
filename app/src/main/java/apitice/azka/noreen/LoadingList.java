@@ -31,7 +31,6 @@ public class LoadingList extends AppCompatActivity {
         setContentView(R.layout.activity_loading_list);
 
         toolba=findViewById(R.id.toolba);
-        tn=findViewById(R.id.n);
         pb=findViewById(R.id.progressBar);
         rcl=findViewById(R.id.rcl);
         toolba.setTitle("Azka Noreen");
@@ -51,7 +50,6 @@ public class LoadingList extends AppCompatActivity {
                         String name= dataList.get(3).getName();
                         pb.setVisibility(View.GONE);
                         initRCL(dataList);
-                        tn.setText(name);
                     }
                 }
             }

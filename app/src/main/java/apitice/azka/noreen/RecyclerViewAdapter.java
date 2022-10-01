@@ -1,5 +1,6 @@
 package apitice.azka.noreen;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             @Override
             public void onClick(View view) {
 //                Toast.makeText(view.getContext(), st.getName(), Toast.LENGTH_SHORT).show();
-//                myInterface.onStudentClick(st);
+                Intent in=new Intent(view.getContext(), Details.class);
+                in.putExtra("Name",st.getName());
+                in.putExtra("Email",st.getEmail());
+                in.putExtra("Gender",st.getGender());
+                in.putExtra("Status",st.getStatus());
+                view.getContext().startActivity(in);
             }
         });
     }

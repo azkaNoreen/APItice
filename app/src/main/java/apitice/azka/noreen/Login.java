@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
                     if(!(pass.equals(""))){
                         if((un.equals(preferences[0])&&pass.equals(preferences[1]))){
                             Intent intent=new Intent(Login.this,LoadingList.class);
-                            intent.putExtra("hello","I amani");
+                            intent.putExtra("me","I amani");
                             startActivity(intent);
                         }else{
                             Toast.makeText(Login.this, "Invalid Credentials,please enter correct", Toast.LENGTH_SHORT).show();
