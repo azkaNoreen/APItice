@@ -13,7 +13,16 @@
         android:background="@color/teal_700"
         app:titleTextColor="@color/white"
         tools:ignore="MissingConstraints"></androidx.appcompat.widget.Toolbar>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Azka Noreen"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:id="@+id/n"
+        tools:ignore="MissingConstraints">
+    </TextView>
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
