@@ -3,6 +3,8 @@ package apitice.azka.noreen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,8 @@ public class LoadingList extends AppCompatActivity {
     Toolbar toolba;
     TextView tn;
     ProgressBar pb;
+    RecyclerView  rcl;
+    List<Users> userss;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +33,15 @@ public class LoadingList extends AppCompatActivity {
         toolba=findViewById(R.id.toolba);
         tn=findViewById(R.id.n);
         pb=findViewById(R.id.progressBar);
+        rcl=findViewById(R.id.rcl);
         toolba.setTitle("Azka Noreen");
         setSupportActionBar(toolba); //set toolbar to act as action bar
         getAllUser();
     }
     private void getAllUser(){
         RetrofitClient retrofitClient= new RetrofitClient();
-        Call<Users> userDetail= retrofitClient.getUserService().getUserDetail(1);
         Call<List<Users>> userCall= retrofitClient.getUserService().getAllUsers();
+//        final List<Users> dataList;
         userCall.enqueue(new Callback<List<Users>>() {
             @Override
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
@@ -45,6 +50,7 @@ public class LoadingList extends AppCompatActivity {
                     if(dataList != null && dataList.size()>0){
                         String name= dataList.get(3).getName();
                         pb.setVisibility(View.GONE);
+                        initRCL(dataList);
                         tn.setText(name);
                     }
                 }
@@ -54,5 +60,11 @@ public class LoadingList extends AppCompatActivity {
 
             }
         });
+    }
+    public void initRCL(List<Users> ls){
+        RecyclerViewAdapter rva=new RecyclerViewAdapter();
+        rcl.setAdapter(rva);
+        rcl.setLayoutManager(new LinearLayoutManager(this));
+        rva.setData(ls);
     }
 }
