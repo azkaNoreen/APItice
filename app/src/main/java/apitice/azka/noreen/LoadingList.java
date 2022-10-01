@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -33,7 +34,9 @@ public class LoadingList extends AppCompatActivity {
         toolba=findViewById(R.id.toolba);
         pb=findViewById(R.id.progressBar);
         rcl=findViewById(R.id.rcl);
-        toolba.setTitle("Azka Noreen");
+        Intent intent=getIntent();
+        String n=intent.getStringExtra("Name");
+        toolba.setTitle(n);
         setSupportActionBar(toolba); //set toolbar to act as action bar
         getAllUser();
     }
