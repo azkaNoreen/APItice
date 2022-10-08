@@ -1,5 +1,6 @@
 "# APItice" 
 An app for the practice of Different APIs
+</br>
 1.First used RetrofitClient API for GET request:
 https://gorest.co.in/
 for getting one user and all the users(GET method)
