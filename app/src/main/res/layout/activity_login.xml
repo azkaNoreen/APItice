@@ -5,57 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
+
+    <TextView
+        android:id="@+id/wel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:text="Welcome"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"></TextView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign IN"
-        android:textSize="24sp"
+        android:text="Sign in to continue"
+        android:textSize="16sp"
+        android:layout_below="@+id/wel"
         android:layout_centerHorizontal="true"
-        android:id="@+id/title"
-        android:textColor="@color/teal_700"
-        android:textStyle="bold"
-        android:layout_margin="24dp"
+        android:id="@+id/signing"
+        ></TextView>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signing"
+        android:hint="Name"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20pt"
+        android:id="@+id/name"
+        ></EditText>
 
-        >
-    </TextView>
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Username"
-        android:textSize="16sp"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:textColorHint="@color/black"
-        android:id="@+id/username"
-        >
-    </EditText>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Password"
-        android:textSize="16sp"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:textColorHint="@color/black"
         android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
         android:inputType="textPassword"
-        >
-    </EditText>
+        android:hint="Password"></EditText>
+
     <Button
-        android:id="@+id/login"
+        android:id="@+id/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="@color/black"
+        android:text="SIGN IN"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:backgroundTint="@color/teal_700"
+        ></Button>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:text="Don't have account? Sign Up"
+        android:textSize="16sp"
+        android:layout_below="@+id/signin"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Login"
-        app:backgroundTint="@color/teal_700"
-
-        />
-
+        android:id="@+id/signup"
+        android:layout_marginTop="190dp"
+        ></TextView>
 </RelativeLayout>

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText u,p;
+    EditText name,password,repassword,email,status;
     Button signup;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sharedPreferencesEditor;
@@ -23,16 +23,20 @@ public class MainActivity extends AppCompatActivity {
         initSharedPref();
 
 
-        u=findViewById(R.id.username);
-        p=findViewById(R.id.password);
+        name=findViewById(R.id.name);
+        password=findViewById(R.id.password);
+        email=findViewById(R.id.email);
+        status=findViewById(R.id.status);
+        repassword=findViewById(R.id.repassword);
+
         signup=findViewById(R.id.signup);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username=u.getText().toString();
-                String password=p.getText().toString();
-                putPrefernceValues(username,password);
+                String username=name.getText().toString();
+                String passwor=password.getText().toString();
+                putPrefernceValues(username,passwor);
                 Intent intent=new Intent(MainActivity.this,Login.class);
                 startActivity(intent);
             }
