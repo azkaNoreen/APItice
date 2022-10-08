@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initSharedPref();
 
-        username=findViewById(R.id.username);
+        username=findViewById(R.id.name);
         password=findViewById(R.id.password);
         login=findViewById(R.id.login);
 
@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Invalid Credentials,please enter correct", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(Login.this, "Please Enter Username", Toast.LENGTH_SHORT).show();
