@@ -6,7 +6,6 @@ An app for the practice of Different APIs
 https://gorest.co.in/
 for getting one user and all the users(GET method)
 </br>
-
 2. https://studenttestx.000webhostapp.com/
 for signing up a user and then login fron the information fetched form the API
 Following are the URL used:
