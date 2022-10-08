@@ -54,7 +54,6 @@ public class Login extends AppCompatActivity {
                         if(response!=null){
                             List<Students> dataList= response.body();
                             if(dataList != null && dataList.size()>0){
-                                String name= dataList.get(0).getName();
                                 String passa = dataList.get(0).getPassword();
 
 
@@ -79,13 +78,9 @@ public class Login extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<List<Students>> call, Throwable t) {
-
+                        Toast.makeText(Login.this, "Invalid Credentials,please enter correct", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
-
             }
         });
     }
