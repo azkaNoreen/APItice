@@ -69,9 +69,17 @@
         android:layout_height="wrap_content"
         android:text="Don't have account? Sign Up"
         android:textSize="16sp"
-        android:layout_below="@+id/signin"
+        android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
         android:id="@+id/signup"
         android:layout_marginTop="190dp"
         ></TextView>
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="152dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true" />
+
 </RelativeLayout>

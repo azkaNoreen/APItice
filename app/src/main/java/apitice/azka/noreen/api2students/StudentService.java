@@ -1,5 +1,7 @@
 package apitice.azka.noreen.api2students;
 
+import java.util.List;
+
 import apitice.azka.noreen.api2students.RetroResponse;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -29,4 +31,8 @@ public interface StudentService {
                                    @Field("password") String password,
                                    @Field("email") String email,
                                    @Field("status") String status);
+
+    @FormUrlEncoded
+    @POST("get_student.php")
+    Call<List<Students>> getStudent(@Field("name") String name);
 }

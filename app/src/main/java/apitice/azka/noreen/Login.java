@@ -8,13 +8,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
+
+import apitice.azka.noreen.api2students.RetroResponse;
+import apitice.azka.noreen.api2students.Students;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
     Button login;
     EditText username,password;
     SharedPreferences sharedPreferences;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +35,9 @@ public class Login extends AppCompatActivity {
         username=findViewById(R.id.name);
         password=findViewById(R.id.password);
         login=findViewById(R.id.login);
+        progressBar=findViewById(R.id.progressBar3);
+        progressBar.setVisibility(View.GONE);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,21 +46,44 @@ public class Login extends AppCompatActivity {
                 String pass=password.getText().toString();
                 String[] preferences=getPrefernceValues();
 
-                if(!(un.equals(""))){
-                    if(!(pass.equals(""))){
-                        if((un.equals(preferences[0])&&pass.equals(preferences[1]))){
-                            Intent intent=new Intent(Login.this,LoadingList.class);
-                            intent.putExtra("Name",preferences[0]);
-                            startActivity(intent);
-                        }else{
-                            Toast.makeText(Login.this, "Invalid Credentials,please enter correct", Toast.LENGTH_SHORT).show();
+                RetrofitClient retrofitClient= new RetrofitClient();
+                Call<List<Students>> studentCall= retrofitClient.getStudentService().getStudent(un);
+                studentCall.enqueue(new Callback<List<Students>>() {
+                    @Override
+                    public void onResponse(Call<List<Students>> call, Response<List<Students>> response) {
+                        if(response!=null){
+                            List<Students> dataList= response.body();
+                            if(dataList != null && dataList.size()>0){
+                                String name= dataList.get(0).getName();
+                                String passa = dataList.get(0).getPassword();
+
+
+                                if(!(un.equals(""))){
+                                    if(!(pass.equals(""))){
+                                        if((pass.equals(passa))){
+                                            Toast.makeText(Login.this, "Successfull", Toast.LENGTH_SHORT).show();
+
+                                            Intent intent=new Intent(Login.this,LoadingList.class);
+                                            startActivity(intent);
+                                        }else{
+                                            Toast.makeText(Login.this, "Invalid Credentials,please enter correct", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }else{
+                                        Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else{
+                                    Toast.makeText(Login.this, "Please Enter Username", Toast.LENGTH_SHORT).show();
+                                }
+                            }
                         }
-                    }else{
-                            Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(Login.this, "Please Enter Username", Toast.LENGTH_SHORT).show();
-                }
+                    @Override
+                    public void onFailure(Call<List<Students>> call, Throwable t) {
+
+                    }
+                });
+
+
 
 
             }
